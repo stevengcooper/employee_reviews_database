@@ -1,16 +1,8 @@
 require './employee'
+require 'active_record'
 
-class Department
-  attr_reader :name, :staff, :review
-
-  def initialize(department_name)
-    @name = department_name
-    @staff = []
-  end
-
-  def add_employee(new_employee)
-    @staff << new_employee
-  end
+class Department < ActiveRecord::Base
+  has_many :employees
 
   def department_salary
     @staff.reduce(0.0) {|sum, e| sum + e.salary}
