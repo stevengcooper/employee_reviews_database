@@ -3,7 +3,7 @@ class Employee < ActiveRecord::Base
   belongs_to :department
 
   def add_employee_review(review)
-    review = review
+    self.review = review
     positive_matches = 0
     negative_matches = 0
 
@@ -24,18 +24,18 @@ class Employee < ActiveRecord::Base
       matches = review.scan(r).count
       negative_matches += matches
     end
-    satisfactory = (positive_matches > negative_matches)
+    self.satisfactory = (positive_matches > negative_matches)
   end
 
   def set_employee_performance(boolean)
-    satisfactory = boolean
+    self.satisfactory = boolean
   end
 
   def raise_by_percent(raise_percentage)
-    salary += (salary * raise_percentage)
+    self.salary += (salary * raise_percentage)
   end
 
   def raise_by_amount(raise_amount)
-    salary += raise_amount
+    self.salary += raise_amount
   end
 end

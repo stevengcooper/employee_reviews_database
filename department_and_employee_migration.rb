@@ -12,7 +12,7 @@ class DepartmentsAndEmployeesMigration < ActiveRecord::Migration
       t.string :name
       t.string :email
       t.string :phone
-      t.string :salary
+      t.integer :salary
       t.text :review
       t.timestamps null: false
     end
