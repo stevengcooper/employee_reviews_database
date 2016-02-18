@@ -16,5 +16,11 @@ class DepartmentsAndEmployeesMigration < ActiveRecord::Migration
       t.text :review
       t.timestamps null: false
     end
+
+    create_table :reviews do |t|
+      t.references :employees
+      t.text :review
+      t.timestamps null: false
+    end
   end
 end
